@@ -1,0 +1,119 @@
+/* --- Global Styles --- */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0a1f44, #001233);
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+/* --- Hero Section --- */
+.hero {
+  text-align: center;
+  padding: 150px 20px;
+  background: linear-gradient(135deg, #0a1f44, #001233);
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.buttons button {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  background: #001f44;
+  transition: 0.3s;
+}
+
+.buttons button:hover {
+  box-shadow: 0 0 20px #00bfff;
+  transform: scale(1.1);
+}
+
+/* --- Team Section --- */
+.team {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.team-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: #001233;
+  padding: 20px;
+  border-radius: 15px;
+  min-width: 150px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00bfff;
+}
+
+/* --- School Policy Section --- */
+.policy {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* --- Contact Section --- */
+.contact {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact input, .contact textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.contact button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #001f44;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact button:hover {
+  box-shadow: 0 0 20px #00bfff;
+  transform: scale(1.05);
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #001233;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
