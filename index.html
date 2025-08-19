@@ -3,55 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZNEXTIAL Movies</title>
+  <title>ZNEXTIAL Studio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <h1>ZNEXTIAL Movies: Respecting Rules, Celebrating Creativity</h1>
-    <div class="buttons">
-      <button onclick="scrollToSection('policy')">School Policy</button>
-      <button onclick="scrollToSection('directors')">Directors</button>
-      <button onclick="scrollToSection('contact')">Contact</button>
-    </div>
-  </header>
+  <!-- Particle background -->
+  <div id="particles-js"></div>
 
-  <!-- TEAM SECTION -->
-  <section id="directors" class="team">
-    <h2>Meet the Directors</h2>
-    <div class="team-cards">
-      <div class="card"><h3>David</h3><p>Main Director</p></div>
-      <div class="card"><h3>Andrei</h3><p>Editor</p></div>
-      <div class="card"><h3>Edi</h3><p>Director</p></div>
-      <div class="card"><h3>Dragos</h3><p>Director</p></div>
-      <div class="card"><h3>Raducu</h3><p>Director</p></div>
-    </div>
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><button id="school-policy-btn">School Policy</button></li>
+      <li><button id="directors-btn">Directors</button></li>
+      <li><button id="contact-btn">Contact</button></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to ZNEXTIAL Studio</h1>
+    <p>Creating films with respect and rules in our school community</p>
   </section>
 
-  <!-- SCHOOL POLICY SECTION -->
-  <section id="policy" class="policy">
-    <h2>School Policy</h2>
-    <p>Explain legal reasons, rules, and permissions for filmmaking in your school community here.</p>
+  <!-- Directors Section -->
+  <section class="directors">
+    <h2>Directors</h2>
+    <ul>
+      <li>David - Main Director</li>
+      <li>Andrei - Editor</li>
+      <li>Edi</li>
+      <li>Dragos</li>
+      <li>Raducu</li>
+    </ul>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form action="mailto:znextial@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    <p>© 2025 ZNEXTIAL – All rights reserved</p>
+    <p>All rights reserved © ZNEXTIAL</p>
   </footer>
 
+  <!-- Your JS -->
   <script src="script.js"></script>
 </body>
 </html>
