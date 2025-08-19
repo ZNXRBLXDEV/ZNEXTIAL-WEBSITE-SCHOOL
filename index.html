@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZNEXTIAL Movies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <h1>ZNEXTIAL Movies: Respecting Rules, Celebrating Creativity</h1>
+    <div class="buttons">
+      <button onclick="scrollToSection('policy')">School Policy</button>
+      <button onclick="scrollToSection('directors')">Directors</button>
+      <button onclick="scrollToSection('contact')">Contact</button>
+    </div>
+  </header>
+
+  <!-- TEAM SECTION -->
+  <section id="directors" class="team">
+    <h2>Meet the Directors</h2>
+    <div class="team-cards">
+      <div class="card"><h3>David</h3><p>Main Director</p></div>
+      <div class="card"><h3>Andrei</h3><p>Editor</p></div>
+      <div class="card"><h3>Edi</h3><p>Director</p></div>
+      <div class="card"><h3>Dragos</h3><p>Director</p></div>
+      <div class="card"><h3>Raducu</h3><p>Director</p></div>
+    </div>
+  </section>
+
+  <!-- SCHOOL POLICY SECTION -->
+  <section id="policy" class="policy">
+    <h2>School Policy</h2>
+    <p>Explain legal reasons, rules, and permissions for filmmaking in your school community here.</p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form action="mailto:znextial@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 ZNEXTIAL – All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
