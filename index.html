@@ -36,7 +36,7 @@
 
   <!-- Directors Section -->
   <section class="directors">
-    <h2>Directors - message us at znextial@gmail.com</h2>
+    <h2>Directors</h2>
     <ul>
       <li>David - Main Director</li>
       <li>Andrei - Editor</li>
@@ -46,46 +46,21 @@
     </ul>
   </section>
 
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Email us: <a href="mailto:znextial@gmail.com">znextial@gmail.com</a></p>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>All rights reserved © ZNEXTIAL</p>
   </footer>
 
-  <!-- Background music (no visible controls) -->
-  <audio id="bg-music" loop preload="auto" aria-hidden="true">
-    <source src="background.mp3" type="audio/mpeg">
-    <!-- Your browser does not support the audio element. -->
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="showreel-music-promo-advertising-opener-vlog-background-intro-theme-261601.mp3" type="audio/mpeg">
   </audio>
-
-  <!-- Try autoplay; if blocked, resume on first user interaction -->
-  <script>
-    (function() {
-      const music = document.getElementById('bg-music');
-      if (!music) return;
-      music.volume = 0.35; // adjust volume 0.0 - 1.0
-
-      // Attempt to play on load (may be blocked by browser)
-      function tryPlay() {
-        music.play().catch(() => {
-          // If autoplay blocked, resume on first user interaction
-          const resume = () => {
-            music.play().catch(()=>{});
-            document.removeEventListener('click', resume);
-            document.removeEventListener('scroll', resume);
-            document.removeEventListener('keydown', resume);
-          };
-          document.addEventListener('click', resume, { once: true });
-          document.addEventListener('scroll', resume, { once: true });
-          document.addEventListener('keydown', resume, { once: true });
-        });
-      }
-
-      window.addEventListener('load', () => {
-        // small delay can help in some browsers
-        setTimeout(tryPlay, 200);
-      });
-    })();
-  </script>
 
   <!-- Your JS -->
   <script src="script.js"></script>
