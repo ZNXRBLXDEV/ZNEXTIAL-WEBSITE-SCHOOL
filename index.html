@@ -1,65 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZNEXTIAL Studio</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Libertinus+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
-  <!-- Particles background -->
+
+  <!-- Particle background -->
   <div id="particles-js"></div>
 
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-label="Hero section">
-    <div class="hero-inner">
-      <h1>ZNEXTIAL Studio 🎬</h1>
-      <p class="tagline">Where creativity meets cinema in our school community</p>
-
-      <nav class="hero-nav" aria-label="Primary">
-        <button class="cta" id="school-policy-btn">School Policy</button>
-        <button class="cta" id="directors-btn">Directors</button>
-        <button class="cta" id="contact-btn">Contact</button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- DIRECTORS SECTION -->
-  <section id="directors" class="directors" aria-labelledby="directors-heading">
-    <h2 id="directors-heading">Our Directors</h2>
+  <!-- Navbar -->
+  <nav>
     <ul>
-      <li><strong>David</strong> — Main Director</li>
-      <li><strong>Andrei</strong> — Editor</li>
-      <li><strong>Edi</strong> — Director</li>
-      <li><strong>Dragoș</strong> — Director</li>
-      <li><strong>Răducu</strong> — Director</li>
+      <li><button id="school-policy-btn">School Policy</button></li>
+      <li><button id="directors-btn">Directors</button></li>
+      <li><button id="contact-btn">Contact</button></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to ZNEXTIAL Studio</h1>
+    <p>Creating films with respect and rules in our school community</p>
+  </section>
+
+  <!-- Directors Section -->
+  <section class="directors">
+    <h2>Directors - message us at znextial@gmail.com</h2>
+    <ul>
+      <li>David - Main Director</li>
+      <li>Andrei - Editor</li>
+      <li>Edi - Actor</li>
+      <li>Dragos - Actor</li>
+      <li>Raducu - Actor</li>
     </ul>
   </section>
 
-  <!-- SCHOOL POLICY SECTION -->
-  <section id="policy" class="policy" aria-labelledby="policy-heading">
-    <h2 id="policy-heading">School Policy</h2>
-    <p>ZNEXTIAL follows the school's guidelines for filming. We obtain permissions, protect privacy, and follow safety rules. Click the School Policy button for details.</p>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="contact" aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Contact</h2>
-    <p>Email: <a href="mailto:znextial@gmail.com">znextial@gmail.com</a></p>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    <p>© 2025 ZNEXTIAL – All rights reserved</p>
+    <p>All rights reserved © ZNEXTIAL</p>
   </footer>
 
-  <!-- Particles library + app script -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Background music (no visible controls) -->
+  <audio id="bg-music" loop preload="auto" aria-hidden="true">
+    <source src="background.mp3" type="audio/mpeg">
+    <!-- Your browser does not support the audio element. -->
+  </audio>
+
+  <!-- Try autoplay; if blocked, resume on first user interaction -->
+  <script>
+    (function() {
+      const music = document.getElementById('bg-music');
+      if (!music) return;
+      music.volume = 0.35; // adjust volume 0.0 - 1.0
+
+      // Attempt to play on load (may be blocked by browser)
+      function tryPlay() {
+        music.play().catch(() => {
+          // If autoplay blocked, resume on first user interaction
+          const resume = () => {
+            music.play().catch(()=>{});
+            document.removeEventListener('click', resume);
+            document.removeEventListener('scroll', resume);
+            document.removeEventListener('keydown', resume);
+          };
+          document.addEventListener('click', resume, { once: true });
+          document.addEventListener('scroll', resume, { once: true });
+          document.addEventListener('keydown', resume, { once: true });
+        });
+      }
+
+      window.addEventListener('load', () => {
+        // small delay can help in some browsers
+        setTimeout(tryPlay, 200);
+      });
+    })();
+  </script>
+
+  <!-- Your JS -->
   <script src="script.js"></script>
 </body>
 </html>
