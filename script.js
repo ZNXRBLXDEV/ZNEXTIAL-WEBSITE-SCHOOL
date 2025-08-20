@@ -65,7 +65,10 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('section, .hero').forEach(el => observer.observe(el));
+// observe sections and hero if present
+document.querySelectorAll('section, .hero').forEach(el => {
+  if (el) observer.observe(el);
+});
 
 /* ============================= */
 /* SMOOTH SCROLL FOR NAV BUTTONS */
@@ -74,17 +77,26 @@ const schoolBtn = document.getElementById("school-policy-btn");
 const directorsBtn = document.getElementById("directors-btn");
 const contactBtn = document.getElementById("contact-btn");
 
-schoolBtn.addEventListener("click", () => {
-  document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
-});
+if (schoolBtn) {
+  schoolBtn.addEventListener("click", () => {
+    const el = document.getElementById('policy') || document.querySelector('.policy') || document.querySelector('.hero');
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  });
+}
 
-directorsBtn.addEventListener("click", () => {
-  document.querySelector(".directors").scrollIntoView({ behavior: "smooth" });
-});
+if (directorsBtn) {
+  directorsBtn.addEventListener("click", () => {
+    const el = document.getElementById('directors') || document.querySelector('.directors');
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  });
+}
 
-contactBtn.addEventListener("click", () => {
-  document.querySelector("footer").scrollIntoView({ behavior: "smooth" });
-});
+if (contactBtn) {
+  contactBtn.addEventListener("click", () => {
+    const el = document.querySelector('footer') || document.getElementById('contact') || document.querySelector('.contact');
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  });
+}
 
 /* ============================= */
 /* OPTIONAL: BUTTON CLICK EFFECT */
@@ -97,7 +109,42 @@ document.querySelectorAll("nav button").forEach(btn => {
 });
 
 /* ============================= */
-/* FUTURE EXPANSION IDEAS */
+/* BACKGROUND MUSIC AUTOPLAY HANDLING */
+/* - Adds automatic play attempt and resumes on first interaction if blocked */
+/* - Expects an <audio id="bg-music"> element in the page with a valid source */
+/* ============================= */
+(function() {
+  const bg = document.getElementById('bg-music');
+  if (!bg) return;
+
+  // sensible default volume (0.0 - 1.0)
+  try { bg.volume = 0.35; } catch (e) {}
+
+  // small helper to attempt play and attach resume listeners if blocked
+  function attemptPlay() {
+    const p = bg.play();
+    if (p !== undefined) {
+      p.catch(() => {
+        // autoplay blocked — resume on first meaningful user interaction
+        const resume = () => {
+          bg.play().catch(()=>{});
+          document.removeEventListener('click', resume);
+          document.removeEventListener('scroll', resume);
+          document.removeEventListener('keydown', resume);
+        };
+        document.addEventListener('click', resume, { once: true });
+        document.addEventListener('scroll', resume, { once: true });
+        document.addEventListener('keydown', resume, { once: true });
+      });
+    }
+  }
+
+  // Try on load (with tiny delay for some browsers)
+  window.addEventListener('load', () => setTimeout(attemptPlay, 250));
+})();
+
+/* ============================= */
+/* FUTURE EXPANSION IDEAS (comments) */
 /* ============================= */
 // 1. Add modal popups for School Policy and Directors info
 // 2. Animate neon glow on buttons when clicked
