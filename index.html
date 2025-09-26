@@ -21,12 +21,13 @@
 
   <!-- Navbar -->
   <nav>
-    <ul>
-      <li><button id="school-policy-btn">School Policy</button></li>
-      <li><button id="directors-btn">Directors</button></li>
-      <li><button id="contact-btn">Contact</button></li>
-    </ul>
-  </nav>
+  <button class="nav-toggle" aria-label="Open navigation">&#9776;</button>
+  <ul>
+    <li><button id="school-policy-btn">School Policy</button></li>
+    <li><button id="directors-btn">Directors</button></li>
+    <li><button id="contact-btn">Contact</button></li>
+  </ul>
+</nav>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -38,9 +39,9 @@
   <section class="directors">
     <h2>Directors</h2>
     <ul>
-      <li>David - Main Director</li>
+      <li>David  - Main Director</li>
       <li>Andrei - Editor</li>
-      <li>Edi - Actor</li>
+      <li>Edi    - Actor</li>
       <li>Dragos - Actor</li>
       <li>Raducu - Actor</li>
     </ul>
@@ -58,9 +59,32 @@
   </footer>
 
   <!-- Background Music -->
-  <audio id="bg-music" autoplay loop>
-    <source src="showreel-music-promo-advertising-opener-vlog-background-intro-theme-261601.mp3" type="audio/mpeg">
-  </audio>
+  document.addEventListener('DOMContentLoaded', () => {
+  // ...existing code...
+
+  const music = document.getElementById('bg-music');
+  if (music) {
+    music.volume = 0.35;
+
+    function tryPlay() {
+      music.play().catch(() => {
+        const resume = () => {
+          music.play().catch(()=>{});
+          document.removeEventListener('click', resume);
+          document.removeEventListener('scroll', resume);
+          document.removeEventListener('keydown', resume);
+        };
+        document.addEventListener('click', resume, { once: true });
+        document.addEventListener('scroll', resume, { once: true });
+        document.addEventListener('keydown', resume, { once: true });
+      });
+    }
+
+    window.addEventListener('load', () => setTimeout(tryPlay, 200));
+  }
+
+  // ...existing code...
+});
 
   <!-- Your JS -->
   <script src="script.js"></script>
