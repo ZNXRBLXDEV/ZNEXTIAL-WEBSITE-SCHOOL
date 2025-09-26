@@ -96,3 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+  /* =============================
+     Hamburger Menu Toggle
+     ============================= */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navUl = document.querySelector('nav ul');
+  if (navToggle && navUl) {
+    navToggle.addEventListener('click', () => {
+      navUl.classList.toggle('open');
+    });
+  }
+  
